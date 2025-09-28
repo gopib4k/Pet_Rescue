@@ -96,9 +96,9 @@ WSGI_APPLICATION = 'pet_rescue_pro.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "pet_rescue",      # the DB you created in pgAdmin
+        "NAME": "pett",      # the DB you created in pgAdmin
         "USER": "postgres",
-        "PASSWORD": "gopi0727",   # use your real password
+        "PASSWORD": "1pw2d3",   # use your real password
         "HOST": "localhost",
         "PORT": "5432",
     }

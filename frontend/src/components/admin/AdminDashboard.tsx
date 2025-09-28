@@ -148,7 +148,6 @@
 // };
 
 // export default AdminDashboard;
-
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import AdminNavbar from "./AdminNavbar";
@@ -248,22 +247,14 @@ const AdminDashboard: React.FC = () => {
 
   if (loading) {
     return (
-      <div
-        className={`min-h-screen flex items-center justify-center ${
-          theme === "light" ? "bg-[#E8E0D3]" : "bg-gray-900"
-        }`}
-      >
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
+      <div className="min-h-screen flex items-center justify-center bg-light-primary dark:bg-dark-background">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-light-accent dark:border-dark-accent"></div>
       </div>
     );
   }
 
   return (
-    <div
-      className={`min-h-screen ${
-        theme === "light" ? "bg-[#E8E0D3] text-[#5B4438]" : "bg-gray-900 text-gray-100"
-      }`}
-    >
+    <div className="min-h-screen bg-light-primary text-light-text dark:bg-dark-background dark:text-dark-secondary theme-transition">
       <AdminNavbar
         user={user}
         onLogout={handleLogout}
@@ -278,13 +269,9 @@ const AdminDashboard: React.FC = () => {
           theme={theme}
         />
 
-        <div
-          className={`flex-1 ml-64 mt-16 p-6 ${
-            theme === "light" ? "text-[#5B4438]" : "text-gray-100"
-          }`}
-        >
+        <main className="flex-1 ml-64 mt-16 p-6">
           {renderContent()}
-        </div>
+        </main>
       </div>
     </div>
   );

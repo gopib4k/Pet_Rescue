@@ -52,7 +52,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeSection, onSectionChange }) => 
 
   return (
     // Removed justify-between to let the child elements handle the layout
-    <div className="fixed left-0 top-16 mt-6 h-[calc(100vh-4rem)] w-64 bg-light-neutral/90 dark:bg-dark-primary/90 backdrop-blur-md shadow-2xl border-r border-light-secondary/20 dark:border-dark-secondary/20 z-40 theme-transition flex flex-col">
+    <div className="fixed left-0 top-16 mt-6 h-[calc(100vh-4rem)] w-64 bg-light-primary/90 dark:bg-dark-primary/90 backdrop-blur-md shadow-2xl border-r border-light-secondary/20 dark:border-dark-secondary/20 z-40 theme-transition flex flex-col">
       {/* Added flex-1 and overflow-y-auto to make this area scrollable */}
       <div className="p-6 flex-1 overflow-y-auto">
         <nav className="space-y-3">

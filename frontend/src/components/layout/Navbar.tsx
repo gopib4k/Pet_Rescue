@@ -1,12 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
 import {
   User,
-  Settings,
   LogOut,
   ChevronDown,
   Bell,
 } from "lucide-react";
-import ThemeToggle from '../ThemeToggle';
+import ThemeToggle from '../ThemeToggle'; // Make sure this path is correct
 
 interface NavbarProps {
   user?: {
@@ -128,30 +127,17 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
 
   return (
     <>
-      <nav className="bg-light-neutral/80 dark:bg-dark-primary/80 backdrop-blur-md shadow-lg border-b border-light-secondary/20 dark:border-dark-secondary/20 fixed top-0 left-0 right-0 z-50 theme-transition">
+      <nav className="bg-light-primary/80 dark:bg-dark-primary/80 backdrop-blur-md shadow-lg border-b border-light-secondary/20 dark:border-dark-secondary/20 fixed top-0 left-0 right-0 z-50 theme-transition">
         <div className="px-6 py-4">
           <div className="flex justify-between items-center">
             {/* Left side - Logo */}
             <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-gradient-to-r from-light-accent via-light-secondary to-light-primary dark:from-dark-accent dark:via-dark-secondary dark:to-dark-primary rounded-2xl flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform duration-300">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 64 64"
-                  className="w-7 h-7 text-white"
-                  fill="currentColor"
-                >
-                  {/* Paw print icon */}
-                  <circle cx="32" cy="48" r="8" />
-                  <circle cx="16" cy="32" r="6" />
-                  <circle cx="48" cy="32" r="6" />
-                  <circle cx="24" cy="16" r="5" />
-                  <circle cx="40" cy="16" r="5" />
-                </svg>
-              </div>
-
-              
+              <img 
+                src="/pawfinder.jpg" alt="Paw Finder Logo"
+                className="w-12 h-12 transform hover:scale-110 transition-transform duration-300"
+              />
               <span className="text-3xl font-bold text-light-text dark:text-dark-secondary">
-                Furry Finder
+                Paw Finder
               </span>
             </div>
 
@@ -164,7 +150,7 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
               <div className="relative" ref={notifRef}>
                 <button
                   onClick={handleNotificationClick}
-                  className="relative p-3 rounded-xl hover:bg-light-neutral/50 dark:hover:bg-dark-primary/50 transition-all duration-300 backdrop-blur-sm border border-light-secondary/20 dark:border-dark-secondary/20 shadow-lg hover:shadow-xl transform hover:scale-105"
+                  className="relative p-3 rounded-xl hover:bg-light-primary/60 dark:hover:bg-dark-background/60 transition-all duration-300 backdrop-blur-sm border border-light-secondary/20 dark:border-dark-secondary/20 shadow-lg hover:shadow-xl transform hover:scale-105"
                 >
                   <Bell className="w-5 h-5 text-light-text dark:text-dark-secondary" />
                   {unreadCount > 0 && (
@@ -178,7 +164,7 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
 
                 {/* Notifications Dropdown */}
                 {showNotifications && (
-                  <div className="absolute right-0 mt-3 w-80 max-h-96 overflow-y-auto bg-light-neutral/90 dark:bg-dark-primary/90 backdrop-blur-md rounded-2xl shadow-2xl border border-light-secondary/20 dark:border-dark-secondary/20 py-3 z-50 animate-in slide-in-from-top">
+                  <div className="absolute right-0 mt-3 w-80 max-h-96 overflow-y-auto bg-light-primary/90 dark:bg-dark-primary/90 backdrop-blur-md rounded-2xl shadow-2xl border border-light-secondary/20 dark:border-dark-secondary/20 py-3 z-50 animate-in slide-in-from-top">
                     <h3 className="px-4 py-2 font-semibold text-light-text dark:text-dark-secondary border-b border-light-secondary/20 dark:border-dark-secondary/20">
                       Notifications
                     </h3>
@@ -211,7 +197,7 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
               <div className="relative" ref={dropdownRef}>
                 <button
                   onClick={() => setShowDropdown(!showDropdown)}
-                  className="flex items-center space-x-4 px-5 py-3 rounded-xl hover:bg-light-neutral/50 dark:hover:bg-dark-primary/50 transition-all duration-300 backdrop-blur-sm border border-light-secondary/20 dark:border-dark-secondary/20 shadow-lg hover:shadow-xl"
+                  className="flex items-center space-x-4 px-5 py-3 rounded-xl hover:bg-light-primary/60 dark:hover:bg-dark-background/60 transition-all duration-300 backdrop-blur-sm border border-light-secondary/20 dark:border-dark-secondary/20 shadow-lg hover:shadow-xl"
                 >
                   <div className="w-10 h-10 bg-gradient-to-r from-light-secondary to-light-accent dark:from-dark-secondary dark:to-dark-accent rounded-xl flex items-center justify-center shadow-lg">
                     {user?.profile_image ? (
@@ -250,10 +236,6 @@ const Navbar: React.FC<NavbarProps> = ({ user, onLogout }) => {
                       </p>
                     </div>
 
-                    <button className="w-full px-6 py-3 text-left text-sm text-light-text dark:text-dark-secondary hover:bg-light-accent/10 dark:hover:bg-dark-accent/10 transition-all duration-300 flex items-center space-x-3 font-medium">
-                      <Settings className="w-4 h-4 text-light-accent dark:text-dark-accent" />
-                      <span>Edit Profile</span>
-                    </button>
 
                     <button
                       onClick={() => setShowLogoutModal(true)}

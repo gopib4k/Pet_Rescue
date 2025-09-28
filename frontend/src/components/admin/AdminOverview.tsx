@@ -61,124 +61,116 @@ const AdminOverview: React.FC = () => {
       title: 'Total Users',
       value: stats.totalUsers,
       icon: Users,
-      color: 'from-blue-500 to-blue-600',
-      bgColor: 'bg-blue-50',
-      textColor: 'text-blue-600'
+      bgColor: 'bg-light-secondary/10 dark:bg-dark-secondary/10',
+      textColor: 'text-light-secondary dark:text-dark-secondary'
     },
     {
       title: 'Total Pets',
       value: stats.totalPets,
       icon: Heart,
-      color: 'from-pink-500 to-pink-600',
-      bgColor: 'bg-pink-50',
-      textColor: 'text-pink-600'
+      bgColor: 'bg-light-accent/10 dark:bg-dark-accent/10',
+      textColor: 'text-light-accent dark:text-dark-accent'
     },
     {
       title: 'Lost Requests',
       value: stats.lostRequests,
       icon: AlertCircle,
-      color: 'from-red-500 to-red-600',
-      bgColor: 'bg-red-50',
-      textColor: 'text-red-600'
+      bgColor: 'bg-light-text/10 dark:bg-dark-neutral/10',
+      textColor: 'text-light-text dark:text-dark-neutral'
     },
     {
       title: 'Found Requests',
       value: stats.foundRequests,
       icon: Search,
-      color: 'from-emerald-500 to-emerald-600',
-      bgColor: 'bg-emerald-50',
-      textColor: 'text-emerald-600'
+      bgColor: 'bg-light-text/10 dark:bg-dark-neutral/10',
+      textColor: 'text-light-text dark:text-dark-neutral'
     },
     {
       title: 'Adopt Requests',
       value: stats.adoptRequests,
       icon: UserPlus,
-      color: 'from-purple-500 to-purple-600',
-      bgColor: 'bg-purple-50',
-      textColor: 'text-purple-600'
+      bgColor: 'bg-light-secondary/10 dark:bg-dark-secondary/10',
+      textColor: 'text-light-secondary dark:text-dark-secondary'
     },
     {
       title: 'Resolved Cases',
       value: stats.resolvedCases,
       icon: CheckCircle,
-      color: 'from-green-500 to-green-600',
-      bgColor: 'bg-green-50',
-      textColor: 'text-green-600'
+      bgColor: 'bg-light-accent/10 dark:bg-dark-accent/10',
+      textColor: 'text-light-accent dark:text-dark-accent'
     },
   ];
-  // const themeBgClass = theme === 'light' ? 'bg-[#E8E0D3] text-black' : 'bg-gray-900 text-gray-100';
 
   if (loading) {
     return (
       <div className="flex items-center justify-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-light-accent dark:border-dark-accent"></div>
       </div>
     );
   }
 
   return (
-    <div className="space-y-6 min-h-screen p-6 bg-[#E8E0D3] bg-[#E8E0D3] text-black text-black dark:text-white">
-  {/* Header */}
-  <div>
-    <h1 className="text-3xl font-bold text-[#5B4438] dark:text-gray-800">
-      Admin Overview
-    </h1>
-    <p className="mt-2 text-black dark:text-gray-500">
-      Monitor and manage your pet rescue platform
-    </p>
-  </div>
-
-  {/* Stats Grid */}
-  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-    {statCards.map((card, index) => {
-      const Icon = card.icon;
-      return (
-        <div
-          key={index}
-          className="bg-[#F5EFE6] dark:bg-gray-800 rounded-lg shadow-lg p-6 border border-[#5B4438]/20 dark:border-gray-700 hover:shadow-xl transition-shadow"
-        >
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm font-medium text-[#5B4438] dark:text-white mb-1">{card.title}</p>
-              <p className="text-3xl font-bold text-[#5B4438] dark:text-yellow-300">{card.value}</p>
-            </div>
-            <div className={`w-12 h-12 ${card.bgColor} rounded-lg flex items-center justify-center`}>
-              <Icon className={`w-6 h-6 ${card.textColor}`} />
-            </div>
-          </div>
-        </div>
-      );
-    })}
-  </div>
-
-  {/* Recent Activity */}
-  <div className="bg-[#F5EFE6] dark:bg-gray-800 rounded-lg shadow-lg p-6 border border-[#5B4438]/20 dark:border-gray-700">
-    <h2 className="text-xl font-semibold text-[#5B4438] dark:text-white mb-4">Platform Health</h2>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div className="space-y-3">
-        <h3 className="font-medium text-[#5B4438] dark:text-white">Success Rate</h3>
-        <div className="w-full bg-[#D8CFC0] dark:bg-gray-700 rounded-full h-2">
-          <div 
-            className="bg-gradient-to-r from-green-500 to-green-600 h-2 rounded-full" 
-            style={{ width: `${stats.resolvedCases > 0 ? (stats.resolvedCases / (stats.lostRequests + stats.foundRequests)) * 100 : 0}%` }}
-          ></div>
-        </div>
-        <p className="text-sm text-black dark:text-gray-300">{stats.resolvedCases} cases resolved</p>
+    <div className="space-y-6 min-h-screen p-6 bg-light-neutral dark:bg-dark-background theme-transition">
+      {/* Header */}
+      <div>
+        <h1 className="text-3xl font-bold text-light-text dark:text-dark-secondary">
+          Admin Overview
+        </h1>
+        <p className="mt-2 text-light-secondary dark:text-dark-neutral">
+          Monitor and manage your pet rescue platform
+        </p>
       </div>
-      <div className="space-y-3">
-        <h3 className="font-medium text-[#5B4438] dark:text-white">Platform Activity</h3>
-        <div className="flex items-center space-x-4">
-          <div className="flex items-center space-x-2">
-            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-            <span className="text-sm text-black dark:text-gray-300">Active</span>
+
+      {/* Stats Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {statCards.map((card, index) => {
+          const Icon = card.icon;
+          return (
+            <div
+              key={index}
+              className="bg-light-primary dark:bg-dark-primary rounded-lg shadow-lg p-6 border border-light-secondary/5 dark:border-dark-secondary/20 hover:shadow-xl hover:border-light-accent/50 dark:hover:border-dark-accent/50 transition-all duration-300 transform hover:-translate-y-1"
+            >
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-medium text-light-secondary dark:text-dark-neutral mb-1">{card.title}</p>
+                  <p className="text-3xl font-bold text-light-text dark:text-dark-secondary">{card.value}</p>
+                </div>
+                <div className={`w-12 h-12 ${card.bgColor} rounded-lg flex items-center justify-center`}>
+                  <Icon className={`w-6 h-6 ${card.textColor}`} />
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Recent Activity */}
+      <div className="bg-light-primary dark:bg-dark-primary rounded-lg shadow-lg p-6 border border-light-secondary/5 dark:border-dark-secondary/20">
+        <h2 className="text-xl font-semibold text-light-text dark:text-dark-secondary mb-4">Platform Health</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-3">
+            <h3 className="font-medium text-light-text dark:text-dark-secondary">Success Rate</h3>
+            <div className="w-full bg-light-neutral dark:bg-dark-background rounded-full h-2.5">
+              <div 
+                className="bg-light-accent dark:bg-dark-accent h-2.5 rounded-full" 
+                style={{ width: `${stats.resolvedCases > 0 ? (stats.resolvedCases / (stats.lostRequests + stats.foundRequests)) * 100 : 0}%` }}
+              ></div>
+            </div>
+            <p className="text-sm text-light-secondary dark:text-dark-neutral">{stats.resolvedCases} cases resolved</p>
           </div>
-          <div className="text-sm text-black dark:text-gray-300">{stats.totalUsers} registered users</div>
+          <div className="space-y-3">
+            <h3 className="font-medium text-light-text dark:text-dark-secondary">Platform Activity</h3>
+            <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2">
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span className="text-sm text-light-secondary dark:text-dark-neutral">Active</span>
+              </div>
+              <div className="text-sm text-light-secondary dark:text-dark-neutral">{stats.totalUsers} registered users</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-
   );
 };
 

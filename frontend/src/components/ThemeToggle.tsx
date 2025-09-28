@@ -41,7 +41,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ variant = 'navbar', className
   return (
     <button
       onClick={toggleTheme}
-      className={`group relative flex items-center justify-center w-12 h-12 bg-light-neutral dark:bg-dark-primary rounded-2xl border border-light-secondary/20 dark:border-dark-secondary/20 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl ${className}`}
+      className={`group relative flex items-center justify-center w-12 h-12 bg-light-primary dark:bg-dark-primary rounded-2xl border border-light-secondary/20 dark:border-dark-secondary/20 hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl ${className}`}
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
     >
       <div className="relative w-8 h-8 flex items-center justify-center">

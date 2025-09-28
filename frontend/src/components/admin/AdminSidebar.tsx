@@ -194,7 +194,7 @@ const AdminSidebar: React.FC<AdminSidebarProps> = ({ activeSection, onSectionCha
   ];
 
   return (
-    <div className="fixed left-0 top-16 mt-5 h-[calc(100vh-4rem)] w-64 bg-light-neutral/90 dark:bg-dark-primary/90 backdrop-blur-md shadow-2xl border-r border-light-secondary/20 dark:border-dark-secondary/20 z-40 theme-transition">
+    <div className="fixed left-0 top-16 mt-5 h-[calc(100vh-4rem)] w-64 bg-light-neutral dark:bg-dark-background backdrop-blur-md shadow-2xl border-r border-light-secondary/20 dark:border-dark-secondary/20 z-40 theme-transition">
       <div className="p-4">
         <nav className="space-y-2">
           {menuItems.map((item) => {

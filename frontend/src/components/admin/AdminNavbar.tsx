@@ -83,18 +83,18 @@ const AdminNavbar: React.FC<AdminNavbarProps> = ({ user, onLogout }) => {
 
   return (
     <>
-      <nav className="bg-light-neutral/95 dark:bg-dark-primary/95 backdrop-blur-sm shadow-lg border-b border-light-secondary/20 dark:border-dark-secondary/20 fixed top-0 left-0 right-0 z-50 theme-transition">
+      <nav className="bg-light-neutral/95 dark:bg-dark-background backdrop-blur-sm shadow-lg border-b border-light-secondary/20 dark:border-dark-secondary/20 fixed top-0 left-0 right-0 z-50 theme-transition">
         <div className="px-6 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-light-accent dark:bg-dark-accent rounded-full flex items-center justify-center">
-                <span className="text-2xl">🐕‍🦺</span>
+              <div className="w-10 h-10 bg-light-accent dark:bg-dark-accent rounded-full flex items-center justify-center overflow-hidden">
+                <img src="/pawfinder.jpg" alt="Paw Finder Logo" className="w-full h-full object-cover" />
               </div>
               <div>
                 <span className="text-2xl font-bold text-light-text dark:text-dark-secondary">
                   Admin Dashboard
                 </span>
-                <p className="text-xs text-light-text/70 dark:text-dark-neutral">PetRescue Management</p>
+                <p className="text-xs text-light-text/70 dark:text-dark-neutral">Paw Finder</p>
               </div>
             </div>
 
@@ -115,7 +115,7 @@ const AdminNavbar: React.FC<AdminNavbarProps> = ({ user, onLogout }) => {
                   )}
                 </button>
                 {showNotifications && (
-                  <div className="absolute right-0 mt-2 w-80 max-h-96 overflow-y-auto bg-light-neutral/90 dark:bg-dark-primary/90 backdrop-blur-md rounded-lg shadow-lg border border-light-secondary/20 dark:border-dark-secondary/20 py-2 z-50">
+                  <div className="absolute right-0 mt-2 w-80 max-h-96 overflow-y-auto bg-light-neutral/90 dark:bg-dark-background backdrop-blur-md rounded-lg shadow-lg border border-light-secondary/20 dark:border-dark-secondary/20 py-2 z-50">
                     <h3 className="px-4 py-2 font-semibold text-light-text dark:text-dark-secondary border-b border-light-secondary/20 dark:border-dark-secondary/20">Notifications</h3>
                     {notifications.length > 0 ? (
                       notifications.map((notif) => (
@@ -160,10 +160,6 @@ const AdminNavbar: React.FC<AdminNavbarProps> = ({ user, onLogout }) => {
                       </span>
                     </div>
                     
-                    <button className="w-full px-4 py-2 text-left text-sm text-light-text dark:text-dark-secondary hover:bg-light-primary dark:hover:bg-dark-background flex items-center space-x-2">
-                      <span className="text-lg">⚙️</span>
-                      <span>Admin Settings</span>
-                    </button>
                     
                     <button
                       onClick={() => setShowLogoutModal(true)}

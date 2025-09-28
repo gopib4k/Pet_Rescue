@@ -310,7 +310,6 @@ const Login: React.FC = () => {
               transition={{ delay: 1, duration: 0.6 }}
               className="text-center text-sm text-light-text/50 dark:text-dark-neutral mt-4"
             >
-              Demo credentials: Use any email/password combination
             </motion.div>
           </motion.div>
         </div>
